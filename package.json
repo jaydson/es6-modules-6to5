@@ -1,0 +1,24 @@
+{
+  "name": "es6-modules-6to5",
+  "version": "1.0.0",
+  "description": "es6-modules-6to5 ================",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaydson/es6-modules-6to5.git"
+  },
+  "author": "Jaydson Gomes <jayalemao@gmail.com> (http://jaydson.org/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaydson/es6-modules-6to5/issues"
+  },
+  "homepage": "https://github.com/jaydson/es6-modules-6to5",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-shell": "^1.1.1",
+    "load-grunt-tasks": "^0.6.0"
+  }
+}
