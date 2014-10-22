@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 	            stderr: false
 	        },
 	        app: {
-	            command: '6to5 app.js --modules common --out-file dist/app.js'
+	            command: '6to5 src/app.js --modules common --out-file dist/app.js'
 	        },
 	        modules: {
 	        	command: '6to5 modules/ --modules common --out-dir dist/'
