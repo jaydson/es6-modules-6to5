@@ -10,5 +10,9 @@ if (isNode) {
   asap = setTimeout;
 }
 
-export default asap;
-export var xxx = 'xxx';
+exports.default = asap;
+var later = isNode ? process.setImmediate : asap;
+exports.later = later;
+var xxx = 'xxx';
+exports.xxx = xxx;
+
