@@ -1,14 +1,20 @@
-require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
+module.exports = function(grunt) {
 
-grunt.initConfig({
-    shell: {
-        options: {
-            stderr: false
-        },
-        target: {
-            command: 'ls'
-        }
-    }
-});
+	require('load-grunt-tasks')(grunt);
 
-grunt.registerTask('default', ['shell']);
+	grunt.initConfig({
+	    shell: {
+	        options: {
+	            stderr: false
+	        },
+	        app: {
+	            command: '6to5 app.js --modules common --out-file dist/app.js'
+	        },
+	        modules: {
+	        	command: '6to5 modules/ --modules common --out-dir dist/'
+	        }
+	    }
+	});
+
+	grunt.registerTask('default', ['shell']);
+}

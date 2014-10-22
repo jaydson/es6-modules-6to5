@@ -4,7 +4,7 @@
   "description": "es6-modules-6to5 ================",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npm i -g 6to5"
   },
   "repository": {
     "type": "git",
