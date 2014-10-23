@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 		clean: ['dist'],
 		'6to5': {
 			options: {
+				modules: 'common'
 			},
 			build: {
 				files: [{
