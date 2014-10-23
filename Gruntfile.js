@@ -3,18 +3,20 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
-	    shell: {
-	        options: {
-	            stderr: false
-	        },
-	        app: {
-	            command: '6to5 src/app.js --modules common --out-file dist/app.js'
-	        },
-	        modules: {
-	        	command: '6to5 modules/ --modules common --out-dir dist/'
-	        }
-	    }
+		clean: ['dist'],
+		'6to5': {
+			options: {
+			},
+			build: {
+				files: [{
+					expand: true,
+					cwd: 'src/',
+					src: ['**/*.js'],
+					dest: 'dist/',
+				}],
+			}
+		}
 	});
 
-	grunt.registerTask('default', ['shell']);
+	grunt.registerTask('default', ['6to5']);
 }
