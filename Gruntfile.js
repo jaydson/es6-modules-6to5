@@ -6,8 +6,9 @@ module.exports = function(grunt) {
 		clean: ['dist'],
 		'6to5': {
 			options: {
-				modules: 'common'
+				modules: 'amd'
 			},
+
 			build: {
 				files: [{
 					expand: true,
@@ -16,8 +17,19 @@ module.exports = function(grunt) {
 					dest: 'dist/',
 				}],
 			}
+		},
+
+		copy: {
+			main: {
+				cwd: './src/sample',
+				src: 'index.html',
+				dest: 'dist/',
+				expand: true,
+				flatten: true,
+				filter: 'isFile'
+			},
 		}
 	});
 
-	grunt.registerTask('default', ['6to5']);
+	grunt.registerTask('default', ['6to5','copy']);
 }
