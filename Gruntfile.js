@@ -2,34 +2,41 @@ module.exports = function(grunt) {
 
 	require('load-grunt-tasks')(grunt);
 
+	var modules = grunt.option('modules') || 'common';
+
 	grunt.initConfig({
 		clean: ['dist'],
 		'6to5': {
 			options: {
-				modules: 'amd'
+				modules: modules
 			},
 
-			build: {
+			main: {
+				files: [{
+					src: ['./src/app.js'],
+					dest: 'dist/sample/' + modules + '/app.js',
+				}]
+			},
+
+			modules: {
 				files: [{
 					expand: true,
 					cwd: 'src/',
-					src: ['**/*.js'],
-					dest: 'dist/',
-				}],
+					src: ['modules/**/*.js'],
+					dest: 'dist/sample/' + modules,
+				}]
 			}
 		},
 
 		copy: {
 			main: {
-				cwd: './src/sample',
-				src: 'index.html',
-				dest: 'dist/',
 				expand: true,
-				flatten: true,
-				filter: 'isFile'
-			},
+				cwd: './src',
+				src: ['sample/**'],
+				dest: 'dist'
+			}
 		}
 	});
 
-	grunt.registerTask('default', ['6to5','copy']);
+	grunt.registerTask('default', ['copy', '6to5']);
 }
