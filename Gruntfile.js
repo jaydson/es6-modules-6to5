@@ -28,6 +28,13 @@ module.exports = function(grunt) {
 			}
 		},
 
+		browserify: {
+			main: {
+				src: ['dist/sample/common/modules/*.js','dist/sample/common/app.js'],
+				dest: 'dist/sample/common/bundle.js'
+			}
+		},
+
 		copy: {
 			main: {
 				expand: true,
@@ -38,5 +45,5 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask('default', ['copy', '6to5']);
+	grunt.registerTask('default', ['copy', '6to5','browserify']);
 }
